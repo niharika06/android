@@ -2,9 +2,7 @@
 language: android
 
 
-jdk:oraclejdk8
-
-
+jdk:JDK_1_7
 env:
 
 global:
