@@ -3,7 +3,7 @@ android:
   components:
     
 -  platform-tools
-- build-tools-19.1.0
+- build-tools-2.2.3
 
 
   - tools
