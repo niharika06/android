@@ -1,71 +1,55 @@
 language: android
 sudo: required
 jdk: oraclejdk8
-
 before_cache:
- - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
- - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
- directories:
- - $HOME/.gradle/caches/
- - $HOME/.gradle/wrapper/
-
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
 env:
- global:
- - ANDROID_API=24
- - EMULATOR_API=21
- - ANDROID_BUILD_TOOLS=24.0.2
- - ADB_INSTALL_TIMEOUT=5 # minutes
- - secure: "kYQFW12wY9zzMNqtor4sTeE4k/877t0igpS/AaPon7MNr+ebqEkeg9z6L1sE+81bopDX+0K62AxO4mKVxOiGGGVU5JS1ZFWg/BhPyKCThm1tUzXCBs5s8AxWU9s9MudfTHgPLwsOhvpKogivA0ZXt5iEFrkv57A51qZFMQ0Irl8iAaMiwjzv+FRT26jCCBCKB5jlRwocwOB7wEujlUN289i5y9o/wcWhBmA5YY7y64hdlZEs/bmF7RXXFpsRzmpvcm9rbnffBfSgDXAmnM1U7S9BLNgxtEoXraXlVlejnkti8+7aBmAqbQTto69eLPJlnGZ917BQLuhPqdapMNvLOwGP/CUVkzAMYsIndQafJsleRTYIRTlH2I+/ZMmaCZVUE4dxO97j1Nrbbksqb5zTzxKVJjgF5FpgZoa8KZeKh5TvFzWP5ZON53UcKM34J2D9juV6iNt34yffYq5OPkCblDHPiL9SbK01fGYlgVhdO9w9O/D+ybdsPC32syHnQgNQTH7GZlIJdJzamv9dN4zB/Hqk3LlECMHXWdYxCP/2EnEIFWO9P0TPw+Fb2B0t7hi/8ksvd7O2PaK3JL9i39prR4ZGeNkrJ3EmmM4dOV8CVZpTLrx+FshHgEszkmkn/nuiMrEqdz/4LK0fRsPLXkr9RFd2HJGrW6ng/lPYkVBT60w="
- - secure: "0Pm10LgXvYeSTGpK6QD3+BCMQv2C5OrBubk67im9R1r9HnxBViyGihZrnOzOdUDnP/j3VwCiuRmWBjmXVmG3c1K+vSpba14H3G9FFKQAwaXcKx3fsMVrXc2NFINjwL8tjKYWAQOPrXC2c1GDQiPOYgWP0YNK17UkAX0nRDZ7nCXZRvlG9xV+TF7lHKgsg7Twjp9hvXZaPJYnGPSyuko6JkBtuGstdptaO7OjfaRCrotiWT848Q/KzOQdVAzTmxMARInMRMXEP+XFkzEh7MKCx1rfz6xVvnA4iTEK8XHmk+/iqpTMFRHr2TpfT0QAF/+4hBpnJ6460ySqybUYd5kgJap+v+lL6w3s8o6gISR6m7YltqelwDeku51ZmgDtOPVmsfJIAd+XQ0SwD0gYd8r//wnNPKssGoGgDqp56g9lVlhzo9ZAkRk2PZh+o8G6vZpARIPnG2a/ENx8tC4QqoiGoR4swrgqDtqU6eruB0dfoNkkr+RiNTKsfJPs4ktQ31dF/qRJW/uLHSPWWrzonn2TE2+wf4pq1lYXadGfl+GhMcuXxTaWP9mEviS2BliGwVHQ8hn2yI40dXfIjZ0yZJPujQfRW/9tbAuKPGFdUm8RcglOpHOdNczMnodq0WfkbIVi/ohYEWmlK8LLvrhafNsevy+gP+c2Fqxw5mI3WnY/T1o="
-
+  global:
+  - ANDROID_API=24
+  - EMULATOR_API=21
+  - ANDROID_BUILD_TOOLS=24.0.2
+  - ADB_INSTALL_TIMEOUT=5
+  - secure: kYQFW12wY9zzMNqtor4sTeE4k/877t0igpS/AaPon7MNr+ebqEkeg9z6L1sE+81bopDX+0K62AxO4mKVxOiGGGVU5JS1ZFWg/BhPyKCThm1tUzXCBs5s8AxWU9s9MudfTHgPLwsOhvpKogivA0ZXt5iEFrkv57A51qZFMQ0Irl8iAaMiwjzv+FRT26jCCBCKB5jlRwocwOB7wEujlUN289i5y9o/wcWhBmA5YY7y64hdlZEs/bmF7RXXFpsRzmpvcm9rbnffBfSgDXAmnM1U7S9BLNgxtEoXraXlVlejnkti8+7aBmAqbQTto69eLPJlnGZ917BQLuhPqdapMNvLOwGP/CUVkzAMYsIndQafJsleRTYIRTlH2I+/ZMmaCZVUE4dxO97j1Nrbbksqb5zTzxKVJjgF5FpgZoa8KZeKh5TvFzWP5ZON53UcKM34J2D9juV6iNt34yffYq5OPkCblDHPiL9SbK01fGYlgVhdO9w9O/D+ybdsPC32syHnQgNQTH7GZlIJdJzamv9dN4zB/Hqk3LlECMHXWdYxCP/2EnEIFWO9P0TPw+Fb2B0t7hi/8ksvd7O2PaK3JL9i39prR4ZGeNkrJ3EmmM4dOV8CVZpTLrx+FshHgEszkmkn/nuiMrEqdz/4LK0fRsPLXkr9RFd2HJGrW6ng/lPYkVBT60w=
+  - secure: 0Pm10LgXvYeSTGpK6QD3+BCMQv2C5OrBubk67im9R1r9HnxBViyGihZrnOzOdUDnP/j3VwCiuRmWBjmXVmG3c1K+vSpba14H3G9FFKQAwaXcKx3fsMVrXc2NFINjwL8tjKYWAQOPrXC2c1GDQiPOYgWP0YNK17UkAX0nRDZ7nCXZRvlG9xV+TF7lHKgsg7Twjp9hvXZaPJYnGPSyuko6JkBtuGstdptaO7OjfaRCrotiWT848Q/KzOQdVAzTmxMARInMRMXEP+XFkzEh7MKCx1rfz6xVvnA4iTEK8XHmk+/iqpTMFRHr2TpfT0QAF/+4hBpnJ6460ySqybUYd5kgJap+v+lL6w3s8o6gISR6m7YltqelwDeku51ZmgDtOPVmsfJIAd+XQ0SwD0gYd8r//wnNPKssGoGgDqp56g9lVlhzo9ZAkRk2PZh+o8G6vZpARIPnG2a/ENx8tC4QqoiGoR4swrgqDtqU6eruB0dfoNkkr+RiNTKsfJPs4ktQ31dF/qRJW/uLHSPWWrzonn2TE2+wf4pq1lYXadGfl+GhMcuXxTaWP9mEviS2BliGwVHQ8hn2yI40dXfIjZ0yZJPujQfRW/9tbAuKPGFdUm8RcglOpHOdNczMnodq0WfkbIVi/ohYEWmlK8LLvrhafNsevy+gP+c2Fqxw5mI3WnY/T1o=
 android:
- components:
- - tools
- - platform-tools
- - build-tools-$ANDROID_BUILD_TOOLS
- - android-$ANDROID_API
- - android-$EMULATOR_API_LEVEL
- - extra-google-m2repository
- - extra-android-m2repository # for design library
- - addon-google_apis-google-19 # google play services
- - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
- - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
-
- licenses:
- - android-sdk-preview-license-.+
- - android-sdk-license-.+
- - google-gdk-license-.+
-
+  components:
+  - tools
+  - platform-tools
+  - build-tools-$ANDROID_BUILD_TOOLS
+  - android-$ANDROID_API
+  - android-$EMULATOR_API_LEVEL
+  - extra-google-m2repository
+  - extra-android-m2repository
+  - addon-google_apis-google-19
+  - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
+  - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
+  licenses:
+  - android-sdk-preview-license-.+
+  - android-sdk-license-.+
+  - google-gdk-license-.+
 before_install:
-
 - mkdir "$ANDROID_HOME/licenses" || true
 - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
 - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 - chmod +x gradlew
-- ./gradlew dependencies || true # DON'T ADD unless you are getting "Install missing components using SDK manager"
-
+- "./gradlew dependencies || true"
 before_script:
 - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
 - emulator -avd test -no-skin -no-audio -no-window &
 - android-wait-for-emulator
 - adb shell input keyevent 82 &
-
 script:
 - "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
-
-
-
 deploy:
   provider: releases
-  api_key:  "zAG97M2PsOmJUiy3EcGnRs0OYXqHO0Nl1HOgNppuQt/ueF8XZHHjQFvZMhfUaKH9F6P6ouH5kKib556CwS67pPshKNe3GmTwgBiBsbhIE/2dXReoH7TcqD2yUsBDFDqrC3mjU33sjjkd0vOx0TkTKue6O170ibm4zW9NJOcx+gom6AgGNjOLsriUWYGEomio7qPVcHgdmIXDk2uZY0KYOZywPf/OhcPguSc81mF00xWsSzZGBwvGIdydHTBYYvXkG1rujV40r2jKuqp8sGEQyAQQ41etDx8m0aTYsAebIIOC09OcplJRPmjESeTiAX/7MUG6SW355P3gUh5r44d0zWYcWe7Bhu0G+K3KesB2HvLxNy8mClx1QlaPxhkdDF7l88zLW5lTL0C8GwJnk/2aPKsiNxuF2VaAtr9cmxiMhxraG5WKcCbmSzt5+ELvmiPJzoYlzixgh12tA/GQ7f033djm3j6VQA68WgmVOEbcRW23gUlNeBBnCcEsBxjso1m9Sc5TwdWpLJY3QQA6aTzQ1sMTcoOrX0eRTbrCZ7o3ghx2oqhtAhKfS/Z/eIznP/H9ez2VpaZ20X5C4cbR9zLJMDCsncnJy/PWvp3/be67Af+cIc+h/1VqZD5rx2EhYYFpYay8ahFulIZJHB2+dbKcx6d6dos+OCqP2/WkPlXpqMk="
-      
-  file: ./app/build/outputs/apk/app-release-unsigned.apk
   skip_cleanup: true
+  api_key:
+    secure: O0dbAoGT7AQwHJsoU/g7GnOnxKu2nG3tq4ZbjGDUEnrH1mcyE6Nt3d/I4YIIdjFTrx7DEyA32JNxqYpiddPFLD2bIp2JDui0sTWugBCmK2pKNJWwo2ZCsZpM5qFOehVr6WLN8jSNQKNC4HdXauttaFHqT4Pw3yA7Wxm0dVRm0VHOO1ro4vcFmNSsakE7g6k+doET4cW+oOFyZ3jmSdduDbDxf5S2kNKa6h4iJNzfh/hIWfywROE3MU4A5zJ+8KeLOO0Inzz1N/k/4G2EGmFYkAupfU9msk/JyE4D6LaCgfReC/bBslrQB9+5cNOalS1DOVNDqq8irjmz+EimMCDxAPRlocZ42naU5KLYjMRuZ7C+AZT1pvvR+dnbXxg1E8zUfReqhSv14s41/g3XDAtLq7MpcbkBe5EWjUIMM3C8Up9vmDvf/207PyyLnynysrjhJYY2MVwB1m+tfR+wsLzPzOeldEUdwXejzMkD4ykWxi6CT0HqHlNF6HaUN5ezQRwMNW1/i39j+m4bOIIAl1yTC2EfR1G+wd/vYUgFUDQn6xDcFBWf21WtYSucWYYehYx/Qtmg5elOt41Zm/TbV32mWwSSDay8S5nm4TFD5ganBH1uCZMmgE6QFdXeF3y4PEW5mgnsRj4wKtfTJKdm4qNOtyZYPjfYfdDpz/c70SjHDnk=
+  file: "./app/build/outputs/apk/app-release-unsigned.apk"
   on:
-     repo: niharika06/android
-     branch: master
-
-    
-  
+    repo: niharika06/android
