@@ -73,7 +73,7 @@ on:
     repo: niharika06/android
     tags: true
     jdk: oraclejdk8
-  api_key:
-    secure:752473fb0bff26044a152ef0026983ac3f1ab9a7
+    api_key:
+secure:"752473fb0bff26044a152ef0026983ac3f1ab9a7"
 
   
