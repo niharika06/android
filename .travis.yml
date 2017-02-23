@@ -55,9 +55,7 @@ before_script:
 script:
 - "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
 
-# Verification
-- jarsigner -verify app-release-unsigned.apk
-- "${ANDROID_HOME}/build-tools/24.0.2/zipalign -v 4 app-release-unsigned.apk CAlculator.apk"
+
 
 deploy:
   provider: releases
