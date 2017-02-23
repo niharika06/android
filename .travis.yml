@@ -8,3 +8,6 @@ android:
 
    
     - android-19
+script:
+
+- "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
