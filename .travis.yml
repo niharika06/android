@@ -63,7 +63,7 @@ deploy:
   file: ./app/build/outputs/apk/app-released-unsigned.apk
   skip_cleanup: true
   on:
-   
+     repo: niharika06/android
      branch: master
 
     
